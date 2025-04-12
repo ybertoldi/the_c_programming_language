@@ -1,8 +1,20 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #define MAXLINE 1000
+#define ARR_SIZE 1000
+#define BUFSIZE 100000
+
+char *lines[ARR_SIZE]; /* arr of strings */
+int lp = 0; /* cur empty space on lines*/
 
 int getline(char *line, int max);
+void put(char *l);
+char* copy_txt(char* s);
+
+void put(char *l){
+    lines[lp++] = copy_txt(l);
+}
 
 int main(int argc, char *argv[])
 {
@@ -39,17 +51,19 @@ int main(int argc, char *argv[])
     {
         while (getline(line, MAXLINE) > 0)
         {
-            lineno++;
-            if ((strstr(line, *argv) != NULL) != except)
+             if ((strstr(line, *argv) != NULL) != except)
             {
-                if (number)
-                {
-                    printf("%1d. ", lineno);
-                }
-                printf("%s", line);
+                put(line);
                 found++;
             }
         }
+    }
+
+    for (int i = 0; i < lp; i++)
+    {
+        if (number)
+            printf("%1d. ", i + 1);
+        printf("%s \n", lines[i]);
     }
 
     return found;
