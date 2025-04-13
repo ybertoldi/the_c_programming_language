@@ -9,3 +9,18 @@ int getline(char *s, int max){
     s[i] = '\0';
     return i;
 }
+
+int readlines(char *lineptr[], int nlines){
+    int i = 0;
+    while (getline(lineptr[i], 10000) > 0)
+    {
+        i++;
+    }
+    return i;
+}
+
+void writelines(char* lineptr[], int nlines){
+    for (int i = 0; i < nlines; i++){
+        printf("%s", lineptr[i]);
+    }
+}
