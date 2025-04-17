@@ -4,6 +4,8 @@
 
 #define MAXWORD 100
 int getword(char*, int);
+struct tnode* addtree(struct tnode *p, char *w);
+void treeprint(struct tnode *p);
 
 int main(int argc, char const *argv[])
 {

@@ -8,7 +8,8 @@ struct tnode
     int count;
     struct tnode *left;
     struct tnode *right;
-};
+}
+
 
 struct tnode* talloc(void)
 {
@@ -30,7 +31,6 @@ struct tnode* addtree(struct tnode *p, char *w){
     } else{
         p->right = addtree(p->right, w);
     }
-    
     return p;
 }
 
@@ -41,5 +41,3 @@ void treeprint(struct tnode *p){
         treeprint(p->right);
     } 
 }
-
-

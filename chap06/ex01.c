@@ -15,5 +15,6 @@ struct point makepoint(int x, int y){
 
     temp.x = x;
     temp.y = y;
+    struct rect *p;
     return temp;
 }

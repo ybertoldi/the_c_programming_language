@@ -7,7 +7,7 @@ struct nlist{
     struct nlist *next;
     char *name;
     char *defn;
-}
+};
 static struct nlist *hashtab[HASHSIZE];
 
 unsigned hash(char *s){
